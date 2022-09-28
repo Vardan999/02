@@ -32,7 +32,7 @@ public class Actions {
                 result++;
             }
         }
-        System.out.println(result);
+        System.out.println(result + " numbers greater than one");
     }
 
     public static void square() {
@@ -154,6 +154,17 @@ public class Actions {
         balanse = (balanse - min) + max;
         System.out.println("Your balans is: " + balanse);
     }
+    public static void uperCase(){
+        for (int i = 65; i < 91; i++) {
+            char ch = (char) i;
+            System.out.print(ch + ", ");
+        }
+
+    }
+
+    public static boolean isFirstMax(int a, int b){
+        return a >= b;
+    }
 
     public static void main(String[] args) {
         List<Integer> arr = new ArrayList<>();
@@ -169,6 +180,8 @@ public class Actions {
         square();
         oddAndEven();
         b();
+        uperCase();
+        System.out.println(isFirstMax(3,2));
 //        cripto(arr);
     }
 }
