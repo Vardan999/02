@@ -20,7 +20,7 @@ public class Actions {
     }
 
 
-    public static void b() {
+    public static void greaterThanOne() {
         int k;
         int num = 0;
         int result = 0;
@@ -35,75 +35,86 @@ public class Actions {
         System.out.println(result + " numbers greater than one");
     }
 
-    public static void square() {
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j <= 7; j++) {
-                System.out.print(" *");
+    public static void square(int n) {
+        if (n > 0) {
+            for (int i = 0; i < 4; i++) {
+                for (int j = 0; j <= 7; j++) {
+                    System.out.print(" *");
+                }
+                System.out.println();
             }
             System.out.println();
+            System.out.println("------------------------");
+            n--;
+            square(n);
         }
-        System.out.println();
-        System.out.println("------------------------");
     }
 //" \uD83E\uDD73"
 
-    public static void triangle() {
-        for (int i = 0; i < 15; i++) {
+    public static void triangle(int n) {
+        if (n > 0) {
+            for (int i = 0; i < 15; i++) {
+                System.out.println();
+                for (int k = 15 - i; k > 1; k--) {
+                    System.out.print(" ");
+                }
+                for (int j = 0; j < i; j++) {
+                    System.out.print(" *");
+                }
+            }
             System.out.println();
-            for (int k = 15 - i; k > 1; k--) {
-                System.out.print(" ");
-            }
-            for (int j = 0; j < i; j++) {
-                System.out.print(" *");
-            }
+            System.out.println("---------------------------------");
+            n--;
+            triangle(n);
         }
-
-        System.out.println();
-        System.out.println("---------------------------------");
     }
 
-    public static void orthodox() {
-        int num = 14;
-        for (int i = 0; i < 7; i++) {
-            System.out.println(" ");
-            for (int p = 0; p < 1; p++) {
-                if (i > 0)
+    public static void orthodox(int n) {
+        if (n > 0) {
+            int num = 14;
+            for (int i = 0; i < 7; i++) {
+                System.out.println(" ");
+                for (int p = 0; p < 1; p++) {
+                    if (i > 0)
+                        System.out.print("|");
+                }
+                for (int i1 = 1; i1 < i; i1++) {
+                    System.out.print("'");
+                }
+                for (int k = 0; k < 15; k++) {
+                    if (k == num && i != 0) {
+                        System.out.print("|");
+                    } else
+                        System.out.print("*");
+                }
+                num--;
+            }
+            int numb = 6;
+            for (int i2 = 0; i2 < 7; i2++) {
+                System.out.println();
+                for (int i1 = 0; i1 < i2; i1++) {
+                    System.out.print(" ");
+                }
+                int k = 0;
+                for (k = 0; k < 15; k++) {
+                    if (k == numb && i2 != 6) {
+                        System.out.print("|");
+                    } else System.out.print("*");
+                }
+                numb--;
+                int i1;
+                for (i1 = 5; i1 > i2; i1--) {
+                    System.out.print("'");
+                }
+                if (i1 == i2)
                     System.out.print("|");
             }
-            for (int i1 = 1; i1 < i; i1++) {
-                System.out.print("'");
-            }
-            for (int k = 0; k < 15; k++) {
-                if (k == num && i != 0) {
-                    System.out.print("|");
-                } else
-                    System.out.print("*");
-            }
-            num--;
-        }
-        int numb = 6;
-        for (int i2 = 0; i2 < 7; i2++) {
             System.out.println();
-            for (int i1 = 0; i1 < i2; i1++) {
-                System.out.print(" ");
-            }
-            int k = 0;
-            for (k = 0; k < 15; k++) {
-                if (k == numb && i2 != 6) {
-                    System.out.print("|");
-                } else System.out.print("*");
-            }
-            numb--;
-            int i1;
-            for (i1 = 5; i1 > i2; i1--) {
-                System.out.print("'");
-            }
-            if (i1 == i2)
-                System.out.print("|");
+            System.out.println("------------------------");
+            System.out.println();
+            --n;
+            orthodox(n);
         }
-        System.out.println();
-        System.out.println("------------------------");
-        System.out.println();
     }
 
     public static void cripto(List<Integer> arr) {
@@ -150,20 +161,37 @@ public class Actions {
                 minIndex = i;
             }
         }
-
         balanse = (balanse - min) + max;
         System.out.println("Your balans is: " + balanse);
     }
-    public static void uperCase(){
+
+
+    public static void upperCase() {
         for (int i = 65; i < 91; i++) {
             char ch = (char) i;
             System.out.print(ch + ", ");
         }
-
     }
 
-    public static boolean isFirstMax(int a, int b){
+    public static boolean isFirstMax(int a, int b) {
         return a >= b;
+    }
+
+    public static char[] lowerCaseLetters(int from, int to) {
+        char[] letters = new char[(to - from) + 1];
+        int index = 0;
+        for (int i = from; i <= to; i++) {
+            letters[index] = (char) i;
+            index++;
+        }
+        return letters;
+    }
+
+    public static void toUpperCase(char[] arr, int interval) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (char) (arr[i] - interval);
+            System.out.print(arr[i] + ", ");
+        }
     }
 
     public static void main(String[] args) {
@@ -175,13 +203,20 @@ public class Actions {
         arr.add(6);
 
 
-        triangle();
-        orthodox();
-        square();
+        triangle(2);
+        orthodox(2);
+        square(2);
         oddAndEven();
-        b();
-        uperCase();
-        System.out.println(isFirstMax(3,2));
+        greaterThanOne();
+        upperCase();
+        System.out.println(isFirstMax(3, 2));
+        char[] letters = lowerCaseLetters(97, 122);
+        for (int i = 0; i < 26; i++) {
+            System.out.print(letters[i] + ", ");
+        }
+        System.out.println();
+        toUpperCase(letters, 32);
+
 //        cripto(arr);
     }
 }
