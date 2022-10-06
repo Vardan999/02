@@ -171,6 +171,7 @@ public class Actions {
             char ch = (char) i;
             System.out.print(ch + ", ");
         }
+        System.out.println();
     }
 
     public static boolean isFirstMax(int a, int b) {
@@ -192,15 +193,58 @@ public class Actions {
             arr[i] = (char) (arr[i] - interval);
             System.out.print(arr[i] + ", ");
         }
+        System.out.println();
     }
+
+    public static boolean isContain(List<Integer> arr, int a) {
+        for (int x : arr) {
+            if (x == a) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static int num(List<Integer> arr, int k) {
+        int sum = 0;
+        for (int x : arr) {
+            if (x != k) {
+                sum += x;
+            }
+            if (!arr.contains(k)) {
+                System.out.println("arr isn't contain k");
+                return -1;
+            }
+        }
+        return sum;
+    }
+
+    public static boolean ascending(List<Integer> arr) {
+        for (int i = 1; i < arr.size(); i++) {
+            if (arr.get(i) < arr.get(i - 1))
+                return false;
+        }
+        return true;
+    }
+
+    public static void aa(int[] arr) {
+        int[] arr1 = new int[arr.length];
+        int index = arr.length - 1;
+        for (int i = 0; i < arr.length; i++) {
+            arr1[i] = arr[index];
+            --index;
+            System.out.print(arr1[i] + ",");
+        }
+    }
+
 
     public static void main(String[] args) {
         List<Integer> arr = new ArrayList<>();
         arr.add(54);
         arr.add(99);
-        arr.add(87);
-        arr.add(7);
-        arr.add(6);
+        arr.add(100);
+        arr.add(101);
+        arr.add(666);
 
 
         triangle(2);
@@ -216,6 +260,11 @@ public class Actions {
         }
         System.out.println();
         toUpperCase(letters, 32);
+        System.out.println(isContain(arr, 5));
+        System.out.println(num(arr, 7));
+        System.out.println(ascending(arr));
+        int[] arr1 = {5, 4, 8, 10, 44, 7, 5, 66};
+        aa(arr1);
 
 //        cripto(arr);
     }
