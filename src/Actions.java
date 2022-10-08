@@ -270,7 +270,7 @@ public class Actions {
         System.out.println();
     }
 
-    public static void rr() {
+    public static void mostRepeated() {
         Random random = new Random();
         int[] arr = new int[10];
         int[] count = new int[10];
@@ -330,6 +330,6 @@ public class Actions {
 //        System.out.println(onlyUpperCase("saA1548L;PPkAssa2A"));
         randomNumbers();
 //        cripto(arr);
-        rr();
+        mostRepeated();
     }
 }
