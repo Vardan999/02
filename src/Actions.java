@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Actions {
     static Scanner in = new Scanner(System.in);
@@ -26,8 +24,7 @@ public class Actions {
         int result = 0;
         for (int i = 0; i < 5; i++) {
             k = in.nextInt();
-            if (i == 0)
-                num = k;
+            if (i == 0) num = k;
             if (num < k) {
                 result++;
             }
@@ -75,8 +72,7 @@ public class Actions {
             for (int i = 0; i < 7; i++) {
                 System.out.println(" ");
                 for (int p = 0; p < 1; p++) {
-                    if (i > 0)
-                        System.out.print("|");
+                    if (i > 0) System.out.print("|");
                 }
                 for (int i1 = 1; i1 < i; i1++) {
                     System.out.print("'");
@@ -84,8 +80,7 @@ public class Actions {
                 for (int k = 0; k < 15; k++) {
                     if (k == num && i != 0) {
                         System.out.print("|");
-                    } else
-                        System.out.print("*");
+                    } else System.out.print("*");
                 }
                 num--;
             }
@@ -106,8 +101,7 @@ public class Actions {
                 for (i1 = 5; i1 > i2; i1--) {
                     System.out.print("'");
                 }
-                if (i1 == i2)
-                    System.out.print("|");
+                if (i1 == i2) System.out.print("|");
             }
             System.out.println();
             System.out.println("------------------------");
@@ -139,8 +133,7 @@ public class Actions {
             arr.remove(maxIndex);
             max = arr.get(0);
             for (int i = 0; i < arr.size(); i++) {
-                if (arr.get(i) > max)
-                    max = arr.get(i);
+                if (arr.get(i) > max) max = arr.get(i);
                 maxIndex = i;
             }
         }
@@ -207,13 +200,13 @@ public class Actions {
 
     public static int num(List<Integer> arr, int k) {
         int sum = 0;
+        if (!arr.contains(k)) {
+            System.out.println("arr isn't contain k");
+            return -1;
+        }
         for (int x : arr) {
             if (x != k) {
                 sum += x;
-            }
-            if (!arr.contains(k)) {
-                System.out.println("arr isn't contain k");
-                return -1;
             }
         }
         return sum;
@@ -221,13 +214,12 @@ public class Actions {
 
     public static boolean ascending(List<Integer> arr) {
         for (int i = 1; i < arr.size(); i++) {
-            if (arr.get(i) < arr.get(i - 1))
-                return false;
+            if (arr.get(i) < arr.get(i - 1)) return false;
         }
         return true;
     }
 
-    public static void aa(int[] arr) {
+    public static void replace(int[] arr) {
         int[] arr1 = new int[arr.length];
         int index = arr.length - 1;
         for (int i = 0; i < arr.length; i++) {
@@ -235,8 +227,78 @@ public class Actions {
             --index;
             System.out.print(arr1[i] + ",");
         }
+        System.out.println();
     }
 
+    public static String onlyUpperCase(String str) {
+        int size = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) >= 65 && str.charAt(i) <= 90) {
+                size++;
+            }
+        }
+        char[] arr = new char[size];
+        for (int i = 0, j = 0; i < str.length(); i++) {
+            if (str.charAt(i) >= 65 && str.charAt(i) <= 90) {
+                arr[j] = str.charAt(i);
+                j++;
+            }
+        }
+        return Arrays.toString(arr);
+    }
+
+    public static void randomNumbers() {
+        Random random = new Random();
+        int[] arr = new int[10];
+        int[] count = new int[10];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(0, 10);
+            System.out.print(arr[i] + ", ");
+        }
+        System.out.println();
+        int k;
+        for (int j : arr) {
+            for (k = 0; k < arr.length; k++) {
+                if (j == k) {
+                    count[k]++;
+                }
+            }
+        }
+        for (int i = 0; i < count.length; i++) {
+            System.out.println(i + " : " + count[i]);
+        }
+        System.out.println();
+    }
+
+    public static void rr() {
+        Random random = new Random();
+        int[] arr = new int[10];
+        int[] count = new int[10];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(0, 10);
+            System.out.print(arr[i] + ", ");
+        }
+        System.out.println();
+        int k;
+        for (int j : arr) {
+            for (k = 0; k < arr.length; k++) {
+                if (j == k) {
+                    count[k]++;
+                }
+            }
+        }
+        int max = count[1];
+        for (int j : count) {
+            if (j > max) {
+                max = j;
+            }
+        }
+        for (int i = 0; i < count.length; i++) {
+            if (max == count[i]) {
+                System.out.println("the most repeated number Is։ " + i + " : " + count[i]);
+            }
+        }
+    }
 
     public static void main(String[] args) {
         List<Integer> arr = new ArrayList<>();
@@ -247,25 +309,27 @@ public class Actions {
         arr.add(666);
 
 
-        triangle(2);
-        orthodox(2);
-        square(2);
-        oddAndEven();
-        greaterThanOne();
-        upperCase();
-        System.out.println(isFirstMax(3, 2));
-        char[] letters = lowerCaseLetters(97, 122);
-        for (int i = 0; i < 26; i++) {
-            System.out.print(letters[i] + ", ");
-        }
-        System.out.println();
-        toUpperCase(letters, 32);
-        System.out.println(isContain(arr, 5));
-        System.out.println(num(arr, 7));
-        System.out.println(ascending(arr));
-        int[] arr1 = {5, 4, 8, 10, 44, 7, 5, 66};
-        aa(arr1);
-
+//        triangle(2);
+//        orthodox(2);
+//        square(2);
+//        oddAndEven();
+//        greaterThanOne();
+//        upperCase();
+//        System.out.println(isFirstMax(3, 2));
+//        char[] letters = lowerCaseLetters(97, 122);
+//        for (int i = 0; i < 26; i++) {
+//            System.out.print(letters[i] + ", ");
+//        }
+//        System.out.println();
+//        toUpperCase(letters, 32);
+//        System.out.println(isContain(arr, 5));
+//        System.out.println(num(arr, 7));
+//        System.out.println(ascending(arr));
+//        int[] arr1 = {5, 4, 8, 10, 44, 7, 5, 5};
+//        replace(arr1);
+//        System.out.println(onlyUpperCase("saA1548L;PPkAssa2A"));
+        randomNumbers();
 //        cripto(arr);
+        rr();
     }
 }
