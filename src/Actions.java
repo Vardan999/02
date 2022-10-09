@@ -301,7 +301,7 @@ public class Actions {
     }
 
     public static String theMostUpperCases(String[] arr) {
-        String max = "s";
+        String max = "";
         for (int i = 1; i < arr.length; i++) {
             if (arr[i].compareTo(arr[i - 1]) < 0) {
                 max = arr[i];
@@ -309,6 +309,19 @@ public class Actions {
         }
         return max;
     }
+
+    public static int sunNumbersOfString(String str) {
+        int sum = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) >= 48 && str.charAt(i) <= 57) {
+                String s = String.valueOf(str.charAt(i));
+                int a = Integer.parseInt(s);
+                sum += a;
+            }
+        }
+        return sum;
+    }
+
 
     public static void main(String[] args) {
         List<Integer> arr = new ArrayList<>();
@@ -345,5 +358,6 @@ public class Actions {
 
         String[] arr2 = {"Vardan", "VARDAN", "vardan"};
         System.out.println(theMostUpperCases(arr2));
+        System.out.println(sunNumbersOfString("s80AL;P2Asa1A"));
     }
 }
