@@ -300,6 +300,16 @@ public class Actions {
         }
     }
 
+    public static String theMostUpperCases(String[] arr) {
+        String max = "s";
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i].compareTo(arr[i - 1]) < 0) {
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+
     public static void main(String[] args) {
         List<Integer> arr = new ArrayList<>();
         arr.add(54);
@@ -308,28 +318,32 @@ public class Actions {
         arr.add(101);
         arr.add(666);
 
+        triangle(2);
+        orthodox(2);
+        square(2);
+        oddAndEven();
+        greaterThanOne();
+        upperCase();
 
-//        triangle(2);
-//        orthodox(2);
-//        square(2);
-//        oddAndEven();
-//        greaterThanOne();
-//        upperCase();
-//        System.out.println(isFirstMax(3, 2));
-//        char[] letters = lowerCaseLetters(97, 122);
-//        for (int i = 0; i < 26; i++) {
-//            System.out.print(letters[i] + ", ");
-//        }
-//        System.out.println();
-//        toUpperCase(letters, 32);
-//        System.out.println(isContain(arr, 5));
-//        System.out.println(num(arr, 7));
-//        System.out.println(ascending(arr));
-//        int[] arr1 = {5, 4, 8, 10, 44, 7, 5, 5};
-//        replace(arr1);
-//        System.out.println(onlyUpperCase("saA1548L;PPkAssa2A"));
+        System.out.println(isFirstMax(3, 2));
+        char[] letters = lowerCaseLetters(97, 122);
+        for (int i = 0; i < 26; i++) {
+            System.out.print(letters[i] + ", ");
+        }
+        System.out.println();
+
+        toUpperCase(letters, 32);
+        System.out.println(isContain(arr, 5));
+        System.out.println(num(arr, 7));
+        System.out.println(ascending(arr));
+
+        int[] arr1 = {5, 4, 8, 10, 44, 7, 5, 5};
+        replace(arr1);
+        System.out.println(onlyUpperCase("saA1548L;PPkAssa2A"));
         randomNumbers();
-//        cripto(arr);
         mostRepeated();
+
+        String[] arr2 = {"Vardan", "VARDAN", "vardan"};
+        System.out.println(theMostUpperCases(arr2));
     }
 }
