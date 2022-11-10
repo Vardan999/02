@@ -310,7 +310,7 @@ public class Actions {
         return max;
     }
 
-    public static int sunNumbersOfString(String str) {
+    public static int sumNumbersOfString(String str) {
         int sum = 0;
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) >= 48 && str.charAt(i) <= 57) {
@@ -322,42 +322,81 @@ public class Actions {
         return sum;
     }
 
+    public static String secondToLast(String str) {
+        String str1 = "";
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(str.length() - 1) == 32) {
+                str = str.substring(0, str.length() - 1);
+            }
+            str1 += str.charAt(i);
+            if (str.charAt(i) == 32) {
+                str1 = "";
+            }
+        }
+        return str1;
+    }
+
+    public static boolean armstrong(Integer num) {
+        String str = num.toString();
+        int sum = 0;
+        for (int i = 0; i < str.length(); i++) {
+            int a = Integer.parseInt(String.valueOf(str.charAt(i)));
+            sum += Math.pow(a, str.length());
+        }
+        return sum == num;
+    }
+
+    public static int sa(int[] arr) {
+        int sum = (arr[0] * arr[1]);
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if ((arr[i] * arr[j]) > sum) {
+                    sum = (arr[i] * arr[j]);
+                }
+            }
+        }
+        return sum;
+    }
+
 
     public static void main(String[] args) {
-        List<Integer> arr = new ArrayList<>();
-        arr.add(54);
-        arr.add(99);
-        arr.add(100);
-        arr.add(101);
-        arr.add(666);
-
-        triangle(2);
-        orthodox(2);
-        square(2);
-        oddAndEven();
-        greaterThanOne();
-        upperCase();
-
-        System.out.println(isFirstMax(3, 2));
-        char[] letters = lowerCaseLetters(97, 122);
-        for (int i = 0; i < 26; i++) {
-            System.out.print(letters[i] + ", ");
-        }
-        System.out.println();
-
-        toUpperCase(letters, 32);
-        System.out.println(isContain(arr, 5));
-        System.out.println(num(arr, 7));
-        System.out.println(ascending(arr));
-
-        int[] arr1 = {5, 4, 8, 10, 44, 7, 5, 5};
-        replace(arr1);
-        System.out.println(onlyUpperCase("saA1548L;PPkAssa2A"));
-        randomNumbers();
+//        List<Integer> arr = new ArrayList<>();
+//        arr.add(54);
+//        arr.add(99);
+//        arr.add(100);
+//        arr.add(101);
+//        arr.add(666);
+//
+//        triangle(2);
+//        orthodox(2);
+//        square(2);
+//        oddAndEven();
+//        greaterThanOne();
+//        upperCase();
+//
+//        System.out.println(isFirstMax(3, 2));
+//        char[] letters = lowerCaseLetters(97, 122);
+//        for (int i = 0; i < 26; i++) {
+//            System.out.print(letters[i] + ", ");
+//        }
+//        System.out.println();
+//
+//        toUpperCase(letters, 32);
+//        System.out.println(isContain(arr, 5));
+//        System.out.println(num(arr, 7));
+//        System.out.println(ascending(arr));
+//
+        int[] arr1 = {5, 44, 8, 10, 44, 7, 5, 55};
+//        replace(arr1);
+//        System.out.println(onlyUpperCase("saA1548L;PPkAssa2A"));
+//        randomNumbers();
         mostRepeated();
-
-        String[] arr2 = {"Vardan", "VARDAN", "vardan"};
-        System.out.println(theMostUpperCases(arr2));
-        System.out.println(sunNumbersOfString("s80AL;P2Asa1A"));
+//
+//        String[] arr2 = {"Vardan", "VARDAN", "vardan"};
+//        System.out.println(theMostUpperCases(arr2));
+//        System.out.println(sumNumbersOfString("180AL;P2A2a15"));
+        System.out.println(secondToLast("aaaaxxxx ahsk"));
+        System.out.println(armstrong(8208));
+        System.out.println(sa(arr1));
     }
 }
