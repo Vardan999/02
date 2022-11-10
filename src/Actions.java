@@ -346,7 +346,7 @@ public class Actions {
         return sum == num;
     }
 
-    public static int sa(int[] arr) {
+    public static int theLargestProduct(int[] arr) {
         int sum = (arr[0] * arr[1]);
         for (int i = 1; i < arr.length; i++) {
             for (int j = i + 1; j < arr.length; j++) {
@@ -358,7 +358,7 @@ public class Actions {
         return sum;
     }
 
-    public static int dd(String str) {
+    public static int sumOfNumbers(String str) {
         String s;
         int sum = 0;
         int j;
@@ -418,7 +418,7 @@ public class Actions {
 //        String[] arr2 = {"Vardan", "VARDAN", "vardan"};
 //        System.out.println(theMostUpperCases(arr2));
 //        System.out.println(sunNumbersOfString("s80AL;P2Asa1A"));
-        System.out.println(dd("18AL;P2As11A"));
+        System.out.println(sumOfNumbers("18AL;P2As11A"));
 //        List<Integer> arr = new ArrayList<>();
 //        arr.add(54);
 //        arr.add(99);
@@ -456,7 +456,7 @@ public class Actions {
 //        System.out.println(sumNumbersOfString("180AL;P2A2a15"));
         System.out.println(secondToLast("aaaaxxxx ahsk"));
         System.out.println(armstrong(8208));
-        System.out.println(sa(arr1));
+        System.out.println(theLargestProduct(arr1));
 
     }
 }
