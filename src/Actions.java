@@ -457,5 +457,6 @@ public class Actions {
         System.out.println(secondToLast("aaaaxxxx ahsk"));
         System.out.println(armstrong(8208));
         System.out.println(sa(arr1));
+
     }
 }
