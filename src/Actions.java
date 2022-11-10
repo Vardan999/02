@@ -310,7 +310,7 @@ public class Actions {
         return max;
     }
 
-    public static int sumNumbersOfString(String str) {
+    public static int sunNumbersOfString(String str) {
         int sum = 0;
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) >= 48 && str.charAt(i) <= 57) {
@@ -358,8 +358,67 @@ public class Actions {
         return sum;
     }
 
+    public static int dd(String str) {
+        String s;
+        int sum = 0;
+        int j;
+        int a = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) >= 48 && str.charAt(i) <= 57) {
+                s = String.valueOf(str.charAt(i));
+                for (j = i + 1; j < str.length(); j++) {
+                    if (str.charAt(j) >= 48 && str.charAt(j) <= 57) {
+                        s += str.charAt(j);
+                    } else
+                        break;
+                }
+                i += j - i;
+                a = Integer.parseInt(s);
+                sum += a;
+            }
+        }
+
+        return sum;
+    }
+
 
     public static void main(String[] args) {
+//        List<Integer> arr = new ArrayList<>();
+//        arr.add(54);
+//        arr.add(99);
+//        arr.add(100);
+//        arr.add(101);
+//        arr.add(666);
+//
+//        triangle(2);
+//        orthodox(2);
+//        square(2);
+//        oddAndEven();
+//        greaterThanOne();
+//        upperCase();
+//
+//        System.out.println(isFirstMax(3, 2));
+//        char[] letters = lowerCaseLetters(97, 122);
+//        for (int i = 0; i < 26; i++) {
+//            System.out.print(letters[i] + ", ");
+//        }
+//        System.out.println();
+//
+//        toUpperCase(letters, 32);
+//        System.out.println(isContain(arr, 5));
+//        System.out.println(num(arr, 7));
+//        System.out.println(ascending(arr));
+//
+//        int[] arr1 = {5, 4, 8, 10, 44, 7, 5, 5};
+//        replace(arr1);
+//        System.out.println(onlyUpperCase("saA1548L;PPkAssa2A"));
+//        randomNumbers();
+//        mostRepeated();
+//
+//        String[] arr2 = {"Vardan", "VARDAN", "vardan"};
+//        System.out.println(theMostUpperCases(arr2));
+//        System.out.println(sunNumbersOfString("s80AL;P2Asa1A"));
+        System.out.println(dd("18AL;P2As11A"));
 //        List<Integer> arr = new ArrayList<>();
 //        arr.add(54);
 //        arr.add(99);
