@@ -377,8 +377,85 @@ public class Actions {
                 sum += a;
             }
         }
-
         return sum;
+    }
+
+    public static boolean twoMakesTen(int a, int b) {
+        return (a == 10 || b == 10 || (a + b) == 10);
+    }
+
+    public static int numbersContainers(int... args) {
+        int count = 1;
+        for (int arg : args) {
+            count *= arg;
+        }
+        return count;
+    }
+
+    public static void isContainSeven(int[] arr) {
+        String num = Arrays.toString(arr);
+        if (num.contains("7")) {
+            System.out.println("Boom!!");
+        } else System.out.println("there is no 7 in the array");
+    }
+
+    public static int piggyBank(int cost, int savings, int start) {
+        int weakDays = 1;
+        int days = 0;
+        int amount;
+        int monday = 0;
+        int sum = 0;
+        int nextMonday = 1;
+        while (sum <= cost - savings) {
+            amount = start + monday;
+            sum += amount;
+            weakDays++;
+            monday++;
+            ++days;
+            if (weakDays == 7) {
+                monday = ++nextMonday;
+                amount = monday + start;
+                sum += amount;
+                weakDays = 1;
+                ++days;
+            }
+        }
+        return days;
+    }
+
+    public static boolean isValid(String str) {
+        List<Character> letters = new ArrayList<>();
+        List<Integer> counts = new ArrayList<>();
+        for (int i = 0; i < str.length(); i++) {
+            if (!letters.contains(str.charAt(i))) {
+                letters.add(str.charAt(i));
+                counts.add(1);
+            } else {
+                counts.set(letters.indexOf(str.charAt(i)), counts.get(letters.indexOf(str.charAt(i))) + 1);
+            }
+        }
+        System.out.println(letters);
+        System.out.println(counts);
+        for (int i = 0; i < counts.size(); i++) {
+            if (counts.get(i) - 1 == 0) {
+                int c = counts.get(i) + 2;
+                counts.set(i, c);
+            }
+            int x = 0;
+            int y = 0;
+            for (Integer count : counts) {
+                if (counts.get(i) - 1 == count) {
+                    x++;
+                }
+                if (Objects.equals(counts.get(i), count)) {
+                    y++;
+                }
+            }
+            System.out.println(x);
+            if (x == counts.size() - 1 || y == counts.size()) return true;
+        }
+
+        return false;
     }
 
 
@@ -418,7 +495,7 @@ public class Actions {
 //        String[] arr2 = {"Vardan", "VARDAN", "vardan"};
 //        System.out.println(theMostUpperCases(arr2));
 //        System.out.println(sunNumbersOfString("s80AL;P2Asa1A"));
-        System.out.println(sumOfNumbers("18AL;P2As11A"));
+//        System.out.println(sumOfNumbers("18AL;P2As11A"));
 //        List<Integer> arr = new ArrayList<>();
 //        arr.add(54);
 //        arr.add(99);
@@ -445,18 +522,23 @@ public class Actions {
 //        System.out.println(num(arr, 7));
 //        System.out.println(ascending(arr));
 //
-        int[] arr1 = {5, 44, 8, 10, 44, 7, 5, 55};
+        int[] arr1 = {5, 44, 100, 17, 44, 5, 1};
 //        replace(arr1);
 //        System.out.println(onlyUpperCase("saA1548L;PPkAssa2A"));
 //        randomNumbers();
-        mostRepeated();
+//        mostRepeated();
 //
 //        String[] arr2 = {"Vardan", "VARDAN", "vardan"};
 //        System.out.println(theMostUpperCases(arr2));
 //        System.out.println(sumNumbersOfString("180AL;P2A2a15"));
-        System.out.println(secondToLast("aaaaxxxx ahsk"));
+        System.out.println(secondToLast("hi everyone"));
         System.out.println(armstrong(8208));
         System.out.println(theLargestProduct(arr1));
+        System.out.println(twoMakesTen(10, 10));
+        System.out.println(numbersContainers(2, 3, 4, 5));
+        isContainSeven(arr1);
+        System.out.println(piggyBank(2050, 1200, 10));
+        System.out.println(isValid("hheeeelloo"));
 
     }
 }
