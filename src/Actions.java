@@ -1,6 +1,5 @@
 import java.util.*;
 
-
 public class Actions {
     static Scanner in = new Scanner(System.in);
 
@@ -435,6 +434,8 @@ public class Actions {
                 counts.set(letters.indexOf(str.charAt(i)), counts.get(letters.indexOf(str.charAt(i))) + 1);
             }
         }
+        System.out.println(letters);
+        System.out.println(counts);
         for (int i = 0; i < counts.size(); i++) {
             if (counts.get(i) - 1 == 0) {
                 int c = counts.get(i) + 2;
@@ -450,6 +451,7 @@ public class Actions {
                     y++;
                 }
             }
+            System.out.println(x);
             if (x == counts.size() - 1 || y == counts.size()) return true;
         }
 
@@ -467,7 +469,7 @@ public class Actions {
         for (int i = 0; i < list.size(); i++) {
             if (i == step) {
                 list.remove(i);
-                step += point-1;
+                step += point - 1;
             }
         }
         if (step >= list.size()) {
@@ -476,32 +478,31 @@ public class Actions {
         return kill(list, point);
     }
 
-    public static void morze(String s){
+    public static void morze(String s) {
         String str = s.toUpperCase();
         char a = 'A';
-        String[][]arr = new String[5][5];
+        String[][] arr = new String[5][5];
         for (int i = 0; i < 5; i++) {
-            System.out.println();
+//            System.out.println();
             for (int j = 0; j < 5; j++) {
-                if (a == 'K'){
+                if (a == 'K') {
                     a++;
                 }
-                if (i ==0 && j == 2) {
+                if (i == 0 && j == 2) {
                     arr[i][j] = "C/K";
-                    a++;
-                }else {
+                } else {
                     arr[i][j] = String.valueOf(a);
-                    a++;
                 }
-                System.out.print(arr[i][j] + " ");
+                a++;
+//                System.out.print(arr[i][j] + " ");
             }
         }
-        for (int i = 0; i <str.length() ; i++) {
-            if (String.valueOf(str.charAt(i)).equals("C") || String.valueOf(str.charAt(i)).equals("K")){
+        for (int i = 0; i < str.length(); i++) {
+            if (String.valueOf(str.charAt(i)).equals("C") || String.valueOf(str.charAt(i)).equals("K")) {
                 System.out.print(". ...");
             }
-            for (int j = 0; j <arr.length ; j++) {
-                for (int q = 0; q <arr.length ; q++) {
+            for (int j = 0; j < arr.length; j++) {
+                for (int q = 0; q < arr.length; q++) {
                     if (String.valueOf(str.charAt(i)).equals(arr[j][q])) {
                         for (int k = 0; k <= j; k++) {
                             System.out.print(".");
@@ -513,6 +514,25 @@ public class Actions {
                         System.out.print(" ");
                     }
                 }
+            }
+        }
+        System.out.println();
+    }
+
+
+    public static void sentenceSearcher(String str, int n) {
+        String[] st = str.split(" ");
+        String[] str1 = new String[0];
+        for (int i = 0; i < str.length(); i++) {
+            str1 = str.split("\\.");
+        }
+        for (String s : str1) {
+            if (n == -1) {
+                n = st.length - 1;
+            }
+            if (s.concat(".").contains(st[n])) {
+                System.out.println(s + ".");
+
             }
         }
     }
@@ -608,8 +628,9 @@ public class Actions {
         list.add(7);
         list.add(8);
 //        System.out.println(isValid("hheeeelloo"));
-        System.out.println(kill(list, 2));
+        System.out.println(kill(list, 5));
         morze("break");
+        sentenceSearcher("I love Tesh. My world evolves in hers. My love for life.", -1);
 
     }
 }
